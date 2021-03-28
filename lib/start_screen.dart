@@ -4,7 +4,15 @@ import 'package:flutter/services.dart';
 import 'package:pizza_app/custom_colors.dart';
 import 'package:pizza_app/favorites_item.dart';
 
-class StartScreen extends StatelessWidget {
+class StartScreen extends StatefulWidget {
+  @override
+  _StartScreenState createState() => _StartScreenState();
+}
+
+class _StartScreenState extends State<StartScreen> {
+
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -13,6 +21,40 @@ class StartScreen extends StatelessWidget {
       ),
       child: SafeArea(
         child: Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: (int index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            iconSize: 28,
+            unselectedFontSize: 12,
+            selectedFontSize: 12,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: CustomColors.orange,
+            showSelectedLabels: true,
+            unselectedItemColor: CustomColors.grey,
+            showUnselectedLabels: true,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                label: 'Home'
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.local_pizza_outlined),
+                label: 'Orders'
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_border_outlined),
+                label: 'Favorites'
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline),
+                label: 'Profile'
+              )
+            ],
+          ),
           backgroundColor: CustomColors.ivory,
           body: Column(
             children: [
@@ -66,6 +108,9 @@ class StartScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              Divider(
+                color: Colors.grey[600],
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0),
                 child: Row(
@@ -93,13 +138,14 @@ class StartScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(
+              Container(
+                height: 320,
                 child: ListView.builder(
                   addRepaintBoundaries: false,
                   scrollDirection: Axis.horizontal,
                   itemCount: 6,
                   itemBuilder: (context, index) {
-                    return FavoritesItem(favoriteName: 'Cheese Pizza', image: 'assets/images/pizza.png', price: 12,);
+                    return FavoritesItem(favoriteName: 'Pepperoni Pizza', image: 'assets/images/pizza.png', price: 12,);
                   }
                 ),
               ),
@@ -108,7 +154,7 @@ class StartScreen extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Let\'s get started!',
+                    'Make from Scratch!',
                     style: TextStyle(
                       color: CustomColors.smokey,
                       fontSize: 28,
