@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pizza_app/custom_colors.dart';
+import 'package:pizza_app/favorite_list_item.dart';
 import 'package:pizza_app/favorites_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,6 +10,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  final List<FavoritesListItem> favoritesList = [
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Classic Cheese', 'The good ol\' fashioned classic cheese pizza', 11)),
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Classic Pepperoni', 'The good ol\' fashioned classic pepperoni pizza', 12)),
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Happy Hawaiian', 'A pizza topped with pineapple and ham', 14)),
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Meatlovers', 'A pizza packed full of bacon, hamburger, ham and sausage', 16)),
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Big Mac', 'Hamburger, lettuce, cheese and topped with special sauce', 15)),
+    FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Loaded Potato', 'A loaded pizza with potato, cheese and bacon', 14)),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -39,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Padding(
               padding: const EdgeInsets.only(left: 24.0, right: 24.0, top: 8.0),
               child: Text(
-                'Let\'s make the best pizza for your next\nmeal!',
+                'Let\'s get the best pizza for your next meal!',
                 style: TextStyle(
                   letterSpacing: 1,
                   color: Colors.grey[500]
@@ -85,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               itemCount: 6,
               itemBuilder: (context, index) {
-                return FavoritesItem(favoriteName: 'Pepperoni Pizza', image: 'assets/images/pizza.png', price: 12,);
+                return favoritesList[index];
               }
             ),
           ),
