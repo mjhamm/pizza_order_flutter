@@ -21,7 +21,7 @@ class FavoritesItem extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: 200,
+                height: 270,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -53,13 +53,31 @@ class FavoritesItem extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 12.0, bottom: 6.0),
+                      padding: const EdgeInsets.only(top: 12.0),
                       child: Text(
                         '\$$price',
                         style: TextStyle(
                           color: CustomColors.orange,
                           fontSize: 26,
                           fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: CustomColors.orange,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                          )
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Add to Order',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     )
