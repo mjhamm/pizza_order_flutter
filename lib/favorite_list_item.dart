@@ -72,7 +72,7 @@ class FavoritesListItem extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20)
                           )
                         ),
-                        onPressed: onPress,
+                        onPressed: () {},
                         child: Text(
                           'Add to Order',
                           style: TextStyle(

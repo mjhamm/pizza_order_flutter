@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pizza_app/step2/create_step_2.dart';
 import 'package:pizza_app/custom_colors.dart';
 import 'package:pizza_app/step_item.dart';
 import 'package:pizza_app/step_list_item.dart';
@@ -72,6 +73,7 @@ class _CreateStep1State extends State<CreateStep1> {
                   child: Container(
                     child: CarouselSlider.builder(
                       options: CarouselOptions(
+                        scrollPhysics: BouncingScrollPhysics(),
                         viewportFraction: 0.6,
                         height: MediaQuery.of(context).size.height / 2.5,
                         initialPage: 1,
@@ -122,7 +124,7 @@ class _CreateStep1State extends State<CreateStep1> {
                       )
                     ),
                     onPressed: () {
-
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateStep2()));
                     },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
