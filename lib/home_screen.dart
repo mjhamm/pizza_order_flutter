@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pizza_app/create_step_1.dart';
 import 'package:pizza_app/custom_colors.dart';
 import 'package:pizza_app/favorite_list_item.dart';
 import 'package:pizza_app/favorites_item.dart';
@@ -19,6 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
     FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Big Mac', 'Hamburger, lettuce, cheese and topped with special sauce', 15)),
     FavoritesListItem(favoritesItem: FavoritesItem('assets/images/pizza.png','Loaded Potato', 'A loaded pizza with potato, cheese and bacon', 14)),
   ];
+
+  sendToSizeScreen(String pizzaName) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateStep1(pizzaName: pizzaName,)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateStep1(pizzaName: 'My Pizza',)));
+              },
               style: ElevatedButton.styleFrom(
                 primary: CustomColors.orange,
                 shape: RoundedRectangleBorder(
@@ -134,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.white,
                   fontSize: 16
                 ),
-              )
+              ),
             ),
           ),
         ],

@@ -5,8 +5,9 @@ import 'package:pizza_app/favorites_item.dart';
 class FavoritesListItem extends StatelessWidget {
 
   final FavoritesItem favoritesItem;
+  Function onPress;
 
-  const FavoritesListItem({Key key, this.favoritesItem}) : super(key: key);
+  FavoritesListItem({Key key, this.favoritesItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class FavoritesListItem extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20)
                           )
                         ),
-                        onPressed: () {},
+                        onPressed: onPress,
                         child: Text(
                           'Add to Order',
                           style: TextStyle(
