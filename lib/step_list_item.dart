@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/custom_colors.dart';
+import 'package:pizza_app/colors/custom_colors.dart';
 import 'package:pizza_app/step_item.dart';
 
 class StepListItem extends StatelessWidget {
@@ -42,7 +42,7 @@ class StepListItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        '\$${item.price}',
+                        '+\$${item.price}',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 34,

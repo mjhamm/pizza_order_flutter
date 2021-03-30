@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pizza_app/custom_colors.dart';
+import 'package:pizza_app/colors/custom_colors.dart';
 import 'package:pizza_app/favorite_list_item.dart';
 import 'package:pizza_app/home_screen.dart';
 

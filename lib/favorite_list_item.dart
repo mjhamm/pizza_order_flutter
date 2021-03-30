@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_app/custom_colors.dart';
+import 'package:pizza_app/colors/custom_colors.dart';
 import 'package:pizza_app/favorites_item.dart';
 
 class FavoritesListItem extends StatelessWidget {
